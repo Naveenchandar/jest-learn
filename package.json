@@ -1,0 +1,23 @@
+{
+  "name": "jest-learn",
+  "version": "1.0.0",
+  "description": "This repo is for learning Jest framework for testing JavaScript applications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Naveenchandar/jest-learn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Naveenchandar/jest-learn/issues"
+  },
+  "homepage": "https://github.com/Naveenchandar/jest-learn#readme",
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
+}
