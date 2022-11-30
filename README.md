@@ -26,16 +26,31 @@ it or test or describe all three api's accept two parameters.
 
 
 
-toEqual vs toStrictEqual
+# toEqual vs toStrictEqual
 toEqual will not check for undefined values in objects.
 toStrictEqual will check for undefined values in objects.
 
 
-toBe vs toEqual
+# toBe vs toEqual
 toBe -> To check primitive values
 toEqual -> To check non primitive values
 
-stringContaining vs stringMatching
+# stringContaining vs stringMatching
 Both methods to use inside toEqual or toBeCalledWith
 stringContaining -> pass only string
 stringMatching -> pass either string or regex
+
+# toContain vs toContainEqual
+* toContain will check for items present in array. (Internally it uses indexOf).
+* toContainEqual will check for items present in array and checks for deep equality.
+* toContainEqual helps in testing array of objects. 
+```
+test('toContainEqual and toContain', () => {
+        const state = [
+            { type: 'START', data: 'foo' },
+            { type: 'START', data: 'baz' },
+            { type: 'END', data: 'foo' },
+        ]
+        expect(state).toContainEqual({ type: 'START', data: 'foo' })
+    });
+```
