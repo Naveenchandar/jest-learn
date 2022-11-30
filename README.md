@@ -23,3 +23,19 @@ function additionn(a,b) {
 it or test or describe all three api's accept two parameters.
 * test name
 * callback
+
+
+
+toEqual vs toStrictEqual
+toEqual will not check for undefined values in objects.
+toStrictEqual will check for undefined values in objects.
+
+
+toBe vs toEqual
+toBe -> To check primitive values
+toEqual -> To check non primitive values
+
+stringContaining vs stringMatching
+Both methods to use inside toEqual or toBeCalledWith
+stringContaining -> pass only string
+stringMatching -> pass either string or regex
