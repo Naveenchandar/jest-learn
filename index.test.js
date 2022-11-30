@@ -1,4 +1,4 @@
-const { additon, subtraction, multiply, divide } = require(".");
+const { additon, subtraction, multiply, divide, oddNumbers } = require(".");
 
 
 // Numbers
@@ -170,3 +170,52 @@ test('zero', () => {
     expect(z).not.toBeTruthy();
     expect(z).toBeFalsy();
 });
+
+describe('Array test', () => {
+    test('toContainEqual and toContain', () => {
+        const state = [
+            { type: 'START', data: 'foo' },
+            { type: 'START', data: 'baz' },
+            { type: 'END', data: 'foo' },
+        ]
+        expect(oddNumbers()).toContainEqual(7);
+        expect(oddNumbers()).toContain(7);
+        expect(state).toContainEqual({ type: 'START', data: 'foo' })
+    });
+
+    test('To check array length', () => {
+        expect(oddNumbers()).toHaveLength(24);
+    })
+
+    test('To check property exist in array', () => {
+        const oddArray = [1, 3, 5, 7, 9, 11, 13];
+        expect(oddArray).toEqual(expect.arrayContaining([1, 3, 5, 7, 9]));
+        // array containing is equal to toContain. Instead of checking each values using toContain. we can use arrayContaining to check in single line
+        expect(oddArray).toContain(1);
+        expect(oddArray).toContain(3);
+        expect(oddArray).toContain(5);
+        expect(oddArray).toContain(7);
+        expect(oddArray).toContain(9);
+    })
+});
+
+describe('Object test', () => {
+    test('check object has correct key', () => {
+        expect({ a: 1 }).toHaveProperty('a');
+    });
+    test('check object has same key and value',() => {
+        expect({ a: 1 }).toHaveProperty('a', 1);
+    });
+    expect({ a: { b: 1 } }).toHaveProperty('a.b');
+    test('check object has another object with exact structure', () => {
+        expect({ a: 1, b: 2 }).toMatchObject({ a: 1 });
+        expect({ a: 1, b: 2 }).toMatchObject({
+            a: expect.any(Number),
+            b: expect.any(Number),
+        });
+    })
+    expect([{ a: 1 }, { b: 2 }]).toEqual([
+        expect.objectContaining({ a: 1 }),
+        expect.anything(),
+    ]);
+})
