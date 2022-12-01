@@ -18,7 +18,25 @@ function getPromiseRejecteddData() {
     return promise;
 }
 
+
+async function asyncAwaitLoad() {
+    try {
+        const data = await getPromiseResolvedData();
+        return data;
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
+async function asyncAwaitLoadReject() {
+    try {
+        const data = await getPromiseRejecteddData();
+        return data;
+    } catch (error) {
+        throw new Error(error.message);
+    }
+}
 // sample execution of function
 // getPromiseResolvedData().then(response => console.log('response', response)).catch(err => console.log('err', err));
 
-module.exports = { getPromiseResolvedData, getPromiseRejecteddData }
+module.exports = { getPromiseResolvedData, getPromiseRejecteddData, asyncAwaitLoad, asyncAwaitLoadReject }
